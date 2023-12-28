@@ -1,0 +1,188 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+int main() {
+    int choice, dob, age, vote, a=0, b=0, c=0, d=0, n=4, i, j;
+    int greatest;   
+    char name[100];
+    char gender;
+
+    do 
+	{
+        printf("***************************************\n"); 
+        printf("*********** VOTING SYSTEM **********************\n");
+        printf("\t\t\t\t 1. Vote \n");
+        printf("\t\t\t\t 2. Check Voting System Results \n");
+        printf("\t\t\t\t 3. Exit \n");
+        printf("***************************************\n");
+        printf("\t\t Enter your choice : \n");
+        scanf("%d", &choice);
+        fflush(stdin);
+        switch(choice) {
+            case 1:
+                printf("***************************************\n");
+                printf("\t\t ENTER YOUR NAME :\n");
+                scanf("%s",&name);
+                fflush(stdin);
+                printf("\t\t ENTER YOUR GENDER M/F:\n");
+                scanf("\t\t %c",&gender);
+                fflush(stdin);
+                      switch(gender)
+                       {        
+        default:
+            printf("\t\t Invalid gender entered.\n");
+            break;
+            case 'M':
+        case 'm':
+        case 'F':
+        case 'f':
+             printf("\t\t ENTER YOUR D.O.B in DDMMYYYY :\n");
+                scanf("%d",&dob);
+                fflush(stdin);
+                dob=dob%10000;
+                age=2023-dob;
+                if(age>=18) {
+                    printf("\t\t enter your votes :\n");
+                    printf("\t\t 1- PARTY A \n");
+                    printf("\t\t 2- PARTY B \n");
+                    printf("\t\t 3- PARTY C \n");
+                    printf("\t\t 4- PARTY D \n");
+                    printf("***************************************\n");
+                    scanf("%d",&vote);
+                    fflush(stdin);
+                    switch(vote) {
+                        case 1:
+                           a=a+1;
+                            printf("\t\t THANK YOU FOR VOTING\n"); 
+                            break;
+                        case 2:
+                            b=b+1;
+                            printf("\t\t THANK YOU FOR VOTING\n");
+                            break;
+                        case 3:
+                            c=c+1;
+                            printf("\t\t THANK YOU FOR VOTING\n");
+                            break;
+                        case 4:
+                           d=d+1;
+                            printf("\t\t THANK YOU FOR VOTING\n");
+                            break;
+                        default :
+                            printf("\t\t WRONG VOTE \n");
+                            break;
+                    }
+                } else {
+                    printf("\t\t NOT ALLOWED TO VOTE \n ");
+                }
+                 switch(gender) {
+        case 'M':
+        case 'm':
+            printf("\t\t Mr.%s \n",name);
+            break;
+        case 'F':
+        case 'f':
+             printf("\t\t Miss.%s \n",name);
+            break;
+        default:
+            printf("\t\t Invalid gender entered.\n");
+            break;
+            }
+            }
+            break;
+                
+            case 2:
+                 {
+int find_greatest(int a, int b, int c, int d) 
+{
+
+    int greatest = 0;
+
+    if (a > greatest)
+     {
+        greatest = a;
+    }
+
+    if (b > greatest)
+     {
+        greatest = b;
+    }
+
+    if (c > greatest) 
+    {
+        greatest = c;
+    }
+
+    if (d > greatest)
+     {
+        greatest = d;
+    }
+
+    return greatest;
+}
+
+greatest = find_greatest(a, b, c, d);
+printf("***************************************\n");
+printf("*********** VOTING SYSTEM RESULTS********************\n");
+if(greatest==a&&greatest==b)
+{
+      printf("\t\t!!!! SORRY! THEIR IS TIE PLEASE VOTE AGAIN !!!!  \n");
+      break;
+      }
+      else if(greatest==a&&greatest==c)
+{
+      printf("\t\t!!!! SORRY! THEIR IS TIE PLEASE VOTE AGAIN !!!!  \n");
+      break;
+      }
+     else if(greatest==a&&greatest==d)
+{
+      printf("\t\t!!!! SORRY! THEIR IS TIE PLEASE VOTE AGAIN !!!!  \n");
+      break;
+      }
+      else if(greatest==b&&greatest==c)
+{
+      printf("\t\t!!!! SORRY! THEIR IS TIE PLEASE VOTE AGAIN !!!!  \n");
+      break;
+      }
+      else if(greatest==b&&greatest==d)
+{
+      printf("\t\t!!!! SORRY! THEIR IS TIE PLEASE VOTE AGAIN !!!!  \n");
+      break;
+      }
+      else if(greatest==d&&greatest==a)
+{
+      printf("\t\t!!!! SORRY! THEIR IS TIE PLEASE VOTE AGAIN !!!!  \n");
+      break;
+      }
+      else if(greatest==b&&greatest==d)
+{
+      printf("\t\t!!!! SORRY! THEIR IS TIE PLEASE VOTE AGAIN !!!!  \n");
+      break;
+      }
+      else 
+      {
+      if(greatest==a)
+    printf("\t\t*--THE WINNER IS PARTY A--* \n");
+if(greatest==b)
+    printf("\t\t*--THE WINNER IS PARTY B--* \n");
+if(greatest==c)
+    printf("\t\t*--THE WINNER IS PARTY c--* \n");
+if(greatest==d)
+    printf("\t\t*--THE WINNER IS PARTY D--* \n");
+                         break;
+                }
+                }
+            case 3:
+                printf("***************************************\n");
+                printf("\t\t Exiting the program...\n");    
+                 printf("***************************************\n");                           
+                break;
+            default:
+                printf("***************************************\n");
+                printf("\t\t Invalid choice\n");
+                printf("***************************************\n");
+        }
+    }
+
+     while(choice != 3);
+     return 
